@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Code First Migration 迁移基本指令</title>
+      <link href="/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/"/>
+      <url>/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Code-First-Migration-迁移基本指令"><a href="#Code-First-Migration-迁移基本指令" class="headerlink" title="Code First Migration 迁移基本指令"></a>Code First Migration 迁移基本指令</h1><h2 id="启用Migration"><a href="#启用Migration" class="headerlink" title="启用Migration"></a>启用Migration</h2><pre><code> enable-migrations</code></pre><h2 id="更新数据库，添加Migration执行文件"><a href="#更新数据库，添加Migration执行文件" class="headerlink" title="更新数据库，添加Migration执行文件"></a>更新数据库，添加Migration执行文件</h2><pre><code> add-migration &#39;Createdb&#39;</code></pre><h2 id="更新数据库"><a href="#更新数据库" class="headerlink" title="更新数据库"></a>更新数据库</h2><pre><code> update-database</code></pre><h2 id="恢复初始"><a href="#恢复初始" class="headerlink" title="恢复初始"></a>恢复初始</h2><pre><code> Update-Database -Migration:0</code></pre><h2 id="回溯数据库"><a href="#回溯数据库" class="headerlink" title="回溯数据库"></a>回溯数据库</h2><pre><code> Update-Database –TargetMigration: TargetMigrationName</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ORM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CodeFirst </tag>
+            
+            <tag> EF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Oracle表空间处理</title>
       <link href="/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/"/>
       <url>/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/</url>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Oracle表空间处理, 遗失的记忆">
+    <meta name="keywords" content="Code First Migration 迁移基本指令, 遗失的记忆">
     <meta name="description" content="收藏与分享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Oracle表空间处理 | 遗失的记忆</title>
+    <title>Code First Migration 迁移基本指令 | 遗失的记忆</title>
     <link rel="icon" type="image/png" href="/hexoBlog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hexoBlog/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hexoBlog/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hexoBlog/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Oracle表空间处理</h1>
+                    <h1 class="description center-align post-title">Code First Migration 迁移基本指令</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/hexoBlog/tags/Oracle/">
-                                <span class="chip bg-color">Oracle</span>
+                            <a href="/hexoBlog/tags/CodeFirst/">
+                                <span class="chip bg-color">CodeFirst</span>
                             </a>
                         
-                            <a href="/hexoBlog/tags/SQL/">
-                                <span class="chip bg-color">SQL</span>
+                            <a href="/hexoBlog/tags/EF/">
+                                <span class="chip bg-color">EF</span>
                             </a>
                         
                     </div>
@@ -424,8 +424,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/hexoBlog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                数据库
+                            <a href="/hexoBlog/categories/ORM/" class="post-category">
+                                ORM
                             </a>
                         
                     </div>
@@ -437,7 +437,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-08
+                    2020-07-13
                 </div>
                 
 
@@ -453,157 +453,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Oracle表空间处理"><a href="#Oracle表空间处理" class="headerlink" title="Oracle表空间处理"></a>Oracle表空间处理</h1><h2 id="一、查询表空间数据使用情况"><a href="#一、查询表空间数据使用情况" class="headerlink" title="一、查询表空间数据使用情况"></a>一、查询表空间数据使用情况</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
-     UPPER<span class="token punctuation">(</span>F<span class="token punctuation">.</span>TABLESPACE_NAME<span class="token punctuation">)</span> <span class="token string">"表空间名"</span><span class="token punctuation">,</span>
-     D<span class="token punctuation">.</span>TOT_GROOTTE_MB <span class="token string">"表空间大小(M)"</span><span class="token punctuation">,</span>
-     D<span class="token punctuation">.</span>TOT_GROOTTE_MB <span class="token operator">-</span> F<span class="token punctuation">.</span>TOTAL_BYTES <span class="token string">"已使用空间(M)"</span><span class="token punctuation">,</span>
-     TO_CHAR <span class="token punctuation">(</span>
-         <span class="token function">ROUND</span><span class="token punctuation">(</span>
-             <span class="token punctuation">(</span>
-                 D<span class="token punctuation">.</span>TOT_GROOTTE_MB <span class="token operator">-</span> F<span class="token punctuation">.</span>TOTAL_BYTES
-             <span class="token punctuation">)</span> <span class="token operator">/</span> D<span class="token punctuation">.</span>TOT_GROOTTE_MB <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span>
-             <span class="token number">2</span>
-         <span class="token punctuation">)</span><span class="token punctuation">,</span>
-         <span class="token string">'990.99'</span>
-     <span class="token punctuation">)</span> <span class="token string">"使用比"</span><span class="token punctuation">,</span>
-     F<span class="token punctuation">.</span>TOTAL_BYTES <span class="token string">"空闲空间(M)"</span><span class="token punctuation">,</span>
-     F<span class="token punctuation">.</span>MAX_BYTES <span class="token string">"最大块(M)"</span>
- <span class="token keyword">FROM</span>
-     <span class="token punctuation">(</span>
-         <span class="token keyword">SELECT</span>
-             TABLESPACE_NAME<span class="token punctuation">,</span>
-             <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">SUM</span><span class="token punctuation">(</span>BYTES<span class="token punctuation">)</span> <span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> TOTAL_BYTES<span class="token punctuation">,</span>
-             <span class="token function">ROUND</span><span class="token punctuation">(</span><span class="token function">MAX</span><span class="token punctuation">(</span>BYTES<span class="token punctuation">)</span> <span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> MAX_BYTES
-         <span class="token keyword">FROM</span>
-             SYS<span class="token punctuation">.</span>DBA_FREE_SPACE
-         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-             TABLESPACE_NAME
-     <span class="token punctuation">)</span> F<span class="token punctuation">,</span>
-     <span class="token punctuation">(</span>
-         <span class="token keyword">SELECT</span>
-             DD<span class="token punctuation">.</span>TABLESPACE_NAME<span class="token punctuation">,</span>
-             <span class="token function">ROUND</span><span class="token punctuation">(</span>
-                 <span class="token function">SUM</span><span class="token punctuation">(</span>DD<span class="token punctuation">.</span>BYTES<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                 <span class="token number">2</span>
-             <span class="token punctuation">)</span> TOT_GROOTTE_MB
-         <span class="token keyword">FROM</span>
-             SYS<span class="token punctuation">.</span>DBA_DATA_FILES DD
-         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-             DD<span class="token punctuation">.</span>TABLESPACE_NAME
-     <span class="token punctuation">)</span> D
- <span class="token keyword">WHERE</span>
-     D<span class="token punctuation">.</span>TABLESPACE_NAME <span class="token operator">=</span> F<span class="token punctuation">.</span>TABLESPACE_NAME
- <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
-     <span class="token number">4</span> <span class="token keyword">DESC</span><span class="token punctuation">;</span></code></pre>
-<h2 id="二、查询表空间文件"><a href="#二、查询表空间文件" class="headerlink" title="二、查询表空间文件"></a>二、查询表空间文件</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">SELECT</span>
-     B<span class="token punctuation">.</span>FILE_NAME 物理文件名<span class="token punctuation">,</span>
-     B<span class="token punctuation">.</span>TABLESPACE_NAME 表空间<span class="token punctuation">,</span>
-     B<span class="token punctuation">.</span>BYTES <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> 大小M<span class="token punctuation">,</span>
-     <span class="token punctuation">(</span>
-         B<span class="token punctuation">.</span>BYTES <span class="token operator">-</span> <span class="token function">SUM</span><span class="token punctuation">(</span>NVL<span class="token punctuation">(</span>A<span class="token punctuation">.</span>BYTES<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-     <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span> 已使用M<span class="token punctuation">,</span>
-     SUBSTR<span class="token punctuation">(</span>
-         <span class="token punctuation">(</span>
-             B<span class="token punctuation">.</span>BYTES <span class="token operator">-</span> <span class="token function">SUM</span><span class="token punctuation">(</span>NVL<span class="token punctuation">(</span>A<span class="token punctuation">.</span>BYTES<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-         <span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>B<span class="token punctuation">.</span>BYTES<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span>
-         <span class="token number">1</span><span class="token punctuation">,</span>
-         <span class="token number">5</span>
-     <span class="token punctuation">)</span> 利用率
- <span class="token keyword">FROM</span>
-     DBA_FREE_SPACE A<span class="token punctuation">,</span>
-     DBA_DATA_FILES B
- <span class="token keyword">WHERE</span>
-     A<span class="token punctuation">.</span>FILE_ID <span class="token operator">=</span> B<span class="token punctuation">.</span>FILE_ID
- <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-     B<span class="token punctuation">.</span>TABLESPACE_NAME<span class="token punctuation">,</span>
-     B<span class="token punctuation">.</span>FILE_NAME<span class="token punctuation">,</span>
-     B<span class="token punctuation">.</span>BYTES
- <span class="token keyword">ORDER</span> <span class="token keyword">BY</span>
-     B<span class="token punctuation">.</span>TABLESPACE_NAME</code></pre>
-<h2 id="三、简单处理办法表空间不足"><a href="#三、简单处理办法表空间不足" class="headerlink" title="三、简单处理办法表空间不足"></a>三、简单处理办法表空间不足</h2><ul>
-<li><blockquote>
-<p>设表空间自增长</p>
-</blockquote>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">DATABASE</span>
-  DATAFILE <span class="token string">'D:\oradata\orcl\users01.dbf'</span> AUTOEXTEND
-  <span class="token keyword">ON</span> <span class="token keyword">NEXT</span> 500M MAXSIZE UNLIMITED</code></pre>
-</li>
-<li><blockquote>
-<p>创建新的表空间文件</p>
-</blockquote>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">ALTER</span> <span class="token keyword">TABLESPACE</span> USERS <span class="token keyword">ADD</span> DATAFILE <span class="token string">'/ora_data/orcl/users02.dbf'</span> SIZE 50M AUTOEXTEND <span class="token keyword">ON</span> <span class="token keyword">NEXT</span> 5M MAXSIZE 100M<span class="token punctuation">;</span></code></pre>
-</li>
-</ul>
-<h2 id="四、一劳永逸处理表空间不足"><a href="#四、一劳永逸处理表空间不足" class="headerlink" title="四、一劳永逸处理表空间不足"></a>四、一劳永逸处理表空间不足</h2><ul>
-<li><blockquote>
-<p>oracle数据文件最大32G，当不足时让人需要人为创建表空间文件<br>创建存储过程，使用率超过90%则进行新增表文件创建<br>该方法从别的地方借鉴，原地址已遗忘，还没试过，mark一下</p>
-</blockquote>
-</li>
-</ul>
-<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span>
- <span class="token operator">OR</span> REPLACE <span class="token keyword">PROCEDURE</span> prc_job_auto_add_datafile <span class="token operator">IS</span> all_file_name varchar2 <span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- tablespace_all varchar2 <span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- vs_sql varchar2 <span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- filecount varchar2 <span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- relativepath varchar2 <span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">CURSOR</span> c_tablespace <span class="token operator">IS</span> <span class="token keyword">SELECT</span>
-     tablespace_name<span class="token punctuation">,</span>
-     Total_MB<span class="token punctuation">,</span>
-     Used_MB<span class="token punctuation">,</span>
-     <span class="token function">Round</span><span class="token punctuation">(</span>Used_MB <span class="token operator">/</span> Total_MB <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> User_Pct
- <span class="token keyword">FROM</span>
-     <span class="token punctuation">(</span>
-         <span class="token keyword">SELECT</span>
-             tablespace_name<span class="token punctuation">,</span>
-             <span class="token function">Round</span><span class="token punctuation">(</span><span class="token function">Sum</span><span class="token punctuation">(</span>bytes<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Used_MB<span class="token punctuation">,</span>
-             <span class="token function">Round</span><span class="token punctuation">(</span><span class="token function">sum</span><span class="token punctuation">(</span>maxbytes<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> Total_MB
-         <span class="token keyword">FROM</span>
-             dba_data_files
-         <span class="token keyword">WHERE</span>
-             tablespace_name <span class="token operator">&lt;></span> <span class="token string">'SYSAUX'</span>
-         <span class="token operator">AND</span> tablespace_name <span class="token operator">&lt;></span> <span class="token string">'USERS'</span>
-         <span class="token operator">AND</span> tablespace_name <span class="token operator">NOT</span> <span class="token operator">LIKE</span> <span class="token string">'UNDOTBS%'</span>
-         <span class="token keyword">GROUP</span> <span class="token keyword">BY</span>
-             tablespace_name
-     <span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token keyword">BEGIN</span>
-     relativepath :<span class="token operator">=</span> <span class="token string">'D:\app\Administrator\oradata\orcl\'</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">--云中心：+DATA/zhsw/datafile/  153：D:\app\Administrator\oradata\orcl\</span>
-    <span class="token keyword">for</span> tablespace_all <span class="token operator">in</span> c_tablespace  loop
-          <span class="token keyword">If</span> tablespace_all<span class="token punctuation">.</span>User_Pct <span class="token operator">>=</span><span class="token number">90</span> <span class="token keyword">Then</span>
-              all_file_name :<span class="token operator">=</span>  relativepath<span class="token operator">||</span> tablespace_all<span class="token punctuation">.</span>tablespace_name<span class="token punctuation">;</span>
-              <span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span> <span class="token keyword">into</span> filecount <span class="token keyword">from</span> dba_data_files <span class="token keyword">where</span> tablespace_name<span class="token operator">=</span>tablespace_all<span class="token punctuation">.</span>tablespace_name<span class="token punctuation">;</span>
-              <span class="token keyword">if</span> filecount<span class="token operator">&lt;=</span><span class="token number">9</span> <span class="token keyword">then</span>
-                filecount:<span class="token operator">=</span><span class="token string">' 0 '</span><span class="token operator">||</span>filecount<span class="token punctuation">;</span>
-              <span class="token keyword">end</span> <span class="token keyword">if</span><span class="token punctuation">;</span>
-              all_file_name :<span class="token operator">=</span> all_file_name<span class="token operator">||</span>filecount<span class="token operator">||</span><span class="token string">'.dbf '</span><span class="token punctuation">;</span>
-              vs_sql :<span class="token operator">=</span> <span class="token string">' ALTER TABLESPACE '</span><span class="token operator">||</span>tablespace_all<span class="token punctuation">.</span>tablespace_name<span class="token operator">||</span><span class="token string">' ADD datafile '</span><span class="token string">''</span><span class="token operator">||</span>all_file_name<span class="token operator">||</span><span class="token string">''</span><span class="token string">' SIZE 1024M AUTOEXTEND ON NEXT 200M MAXSIZE UNLIMITED '</span><span class="token punctuation">;</span>
-              <span class="token comment" spellcheck="true">--dbms_output.put_line(vs_sql);</span>
-              <span class="token keyword">Execute</span> Immediate vs_sql<span class="token punctuation">;</span>
-         <span class="token keyword">End</span> <span class="token keyword">If</span><span class="token punctuation">;</span>
-    <span class="token keyword">end</span> loop<span class="token punctuation">;</span>
-  exception
-    <span class="token keyword">when</span> others <span class="token keyword">then</span>
-      dbms_output<span class="token punctuation">.</span>put_line<span class="token punctuation">(</span>sqlerrm<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">End</span> prc_job_auto_add_datafile<span class="token punctuation">;</span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+                <h1 id="Code-First-Migration-迁移基本指令"><a href="#Code-First-Migration-迁移基本指令" class="headerlink" title="Code First Migration 迁移基本指令"></a>Code First Migration 迁移基本指令</h1><h2 id="启用Migration"><a href="#启用Migration" class="headerlink" title="启用Migration"></a>启用Migration</h2><pre><code> enable-migrations</code></pre><h2 id="更新数据库，添加Migration执行文件"><a href="#更新数据库，添加Migration执行文件" class="headerlink" title="更新数据库，添加Migration执行文件"></a>更新数据库，添加Migration执行文件</h2><pre><code> add-migration &#39;Createdb&#39;</code></pre><h2 id="更新数据库"><a href="#更新数据库" class="headerlink" title="更新数据库"></a>更新数据库</h2><pre><code> update-database</code></pre><h2 id="恢复初始"><a href="#恢复初始" class="headerlink" title="恢复初始"></a>恢复初始</h2><pre><code> Update-Database -Migration:0</code></pre><h2 id="回溯数据库"><a href="#回溯数据库" class="headerlink" title="回溯数据库"></a>回溯数据库</h2><pre><code> Update-Database –TargetMigration: TargetMigrationName</code></pre>
             </div>
             <hr/>
 
@@ -628,7 +478,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/">https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/</a>
+                    <a href="https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/">https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,12 +516,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/hexoBlog/tags/Oracle/">
-                                    <span class="chip bg-color">Oracle</span>
+                                <a href="/hexoBlog/tags/CodeFirst/">
+                                    <span class="chip bg-color">CodeFirst</span>
                                 </a>
                             
-                                <a href="/hexoBlog/tags/SQL/">
-                                    <span class="chip bg-color">SQL</span>
+                                <a href="/hexoBlog/tags/EF/">
+                                    <span class="chip bg-color">EF</span>
                                 </a>
                             
                         </div>
@@ -839,9 +689,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/">
                     <div class="card-image">
@@ -859,9 +710,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -874,6 +725,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -896,22 +748,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hexoBlog/2020/07/08/oracle-kong-biao-dao-chu-ban-fa/">
+                <a href="/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/hexoBlog/medias/featureimages/7.jpg" class="responsive-img" alt="Oracle空表导出办法">
+                        <img src="/hexoBlog/medias/featureimages/18.jpg" class="responsive-img" alt="Oracle表空间处理">
                         
-                        <span class="card-title">Oracle空表导出办法</span>
+                        <span class="card-title">Oracle表空间处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Oracle空表导出办法
-执行下面语句，再将生成的语句全部执行
-
-select 'alter table '||table_name||' allocate extent;' from user_tables where num_rows=
+                            Oracle表空间处理
                         
                     </div>
                     <div class="publish-info">
