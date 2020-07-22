@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Code First Migration 迁移基本指令, 遗失的记忆">
+    <meta name="keywords" content="ABP VNext学习, 遗失的记忆">
     <meta name="description" content="学习永无止境，技术永无上限，代码就是艺术享">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Code First Migration 迁移基本指令 | 遗失的记忆</title>
+    <title>ABP VNext学习 | 遗失的记忆</title>
     <link rel="icon" type="image/png" href="/hexoBlog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/hexoBlog/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/hexoBlog/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/hexoBlog/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Code First Migration 迁移基本指令</h1>
+                    <h1 class="description center-align post-title">ABP VNext学习</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/hexoBlog/tags/CodeFirst/">
-                                <span class="chip bg-color">CodeFirst</span>
+                            <a href="/hexoBlog/tags/ABP-VNext/">
+                                <span class="chip bg-color">ABP VNext</span>
                             </a>
                         
-                            <a href="/hexoBlog/tags/EF/">
-                                <span class="chip bg-color">EF</span>
+                            <a href="/hexoBlog/tags/Asp-Net-Core/">
+                                <span class="chip bg-color">Asp.Net.Core</span>
                             </a>
                         
                     </div>
@@ -424,8 +424,16 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/hexoBlog/categories/ORM/" class="post-category">
-                                ORM
+                            <a href="/hexoBlog/categories/ABP/" class="post-category">
+                                ABP
+                            </a>
+                        
+                            <a href="/hexoBlog/categories/ABP/%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/" class="post-category">
+                                学习教程
+                            </a>
+                        
+                            <a href="/hexoBlog/categories/ABP/%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" class="post-category">
+                                后端开发
                             </a>
                         
                     </div>
@@ -437,7 +445,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-13
+                    2020-07-22
                 </div>
                 
 
@@ -453,7 +461,78 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Code-First-Migration-迁移基本指令"><a href="#Code-First-Migration-迁移基本指令" class="headerlink" title="Code First Migration 迁移基本指令"></a>Code First Migration 迁移基本指令</h1><h2 id="启用Migration"><a href="#启用Migration" class="headerlink" title="启用Migration"></a>启用Migration</h2><pre><code> enable-migrations</code></pre><h2 id="更新数据库，添加Migration执行文件"><a href="#更新数据库，添加Migration执行文件" class="headerlink" title="更新数据库，添加Migration执行文件"></a>更新数据库，添加Migration执行文件</h2><pre><code> add-migration &#39;Createdb&#39;</code></pre><h2 id="更新数据库"><a href="#更新数据库" class="headerlink" title="更新数据库"></a>更新数据库</h2><pre><code> update-database</code></pre><h2 id="恢复初始"><a href="#恢复初始" class="headerlink" title="恢复初始"></a>恢复初始</h2><pre><code> Update-Database -Migration:0</code></pre><h2 id="回溯数据库"><a href="#回溯数据库" class="headerlink" title="回溯数据库"></a>回溯数据库</h2><pre><code> Update-Database –TargetMigration: TargetMigrationName</code></pre>
+                <h1 id="ABP-VNext"><a href="#ABP-VNext" class="headerlink" title="ABP VNext"></a>ABP VNext</h1><h2 id="ABP-VNext介绍"><a href="#ABP-VNext介绍" class="headerlink" title="ABP VNext介绍"></a>ABP VNext介绍</h2><blockquote>
+<p>ABP VNext是一个ASP.NET Bolierplate 的ASP.NET Core版本，是遵循简洁架构，模块化/插件化设计等多种最佳实践模式的一套web应用程序快速开发套件。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">面向DDD的架构分层设计</td>
+</tr>
+<tr>
+<td align="left">HTTP APIs&amp;动态代理</td>
+</tr>
+<tr>
+<td align="left">模块化设计&amp;微服务兼容</td>
+</tr>
+<tr>
+<td align="left">模切关注点（授权，验证，异常处理，缓存，审计日志，事务管理…）</td>
+</tr>
+<tr>
+<td align="left">虚拟文件系统</td>
+</tr>
+<tr>
+<td align="left">主题与皮肤支持</td>
+</tr>
+<tr>
+<td align="left">多租户支持</td>
+</tr>
+</tbody></table>
+<h2 id="ABP-Vnext相关资料"><a href="#ABP-Vnext相关资料" class="headerlink" title="ABP Vnext相关资料"></a>ABP Vnext相关资料</h2><p><a href="https://abp.io/" target="_blank" rel="noopener">官网</a><br><a href="https://docs.abp.io/zh-hans/abp/latest/" target="_blank" rel="noopener">文档</a><br><a href="https://github.com/abpframework/abp" target="_blank" rel="noopener">源码</a><br><a href="https://github.com/EasyAbp" target="_blank" rel="noopener">ABP国内小组</a></p>
+<h2 id="ABP的模块化"><a href="#ABP的模块化" class="headerlink" title="ABP的模块化"></a>ABP的模块化</h2><ul>
+<li>什么是模块？<blockquote>
+<p>在我们生活中导出都可以看到模块化设计的例子，比如汽车，电脑，家具都是由一些零件组合成小部件，然后在由这些小部件组合成模块，再由模块组合成成品。这些部件可以更换、添加、移除而不影响整体设计。</p>
+<blockquote>
+<p>组件: Component<br>组件是软件的部署单元，是整个软件系统在部署过程中可以独立完成部署的最小实体。对于Java来说是一个jar文件，在.NET中是DLL文件。<br>模块: Module<br>偏向于设计的概念，用于在项目中划分相对独立的功能，或许有时候，模块本身就要引用多个组件。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>模块VS组件</p>
+<blockquote>
+<p>模块化是指将软件划分成独立命名且可以独立访问的模块，不同的模块通常具有不同的功能或职责。每个模块都具有可以独立开发、测试，最后组装成完整的软件。<br> 零件 = 类<br> 小部件 = 组件<br> 模块 = 模块</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>ABP模块示例<br>  1.代码<br>  2.依赖注入<br>  3.配置与Options</li>
+<li>为什么要模块化？</li>
+<li>如何拆分模块？</li>
+<li>模块化进阶<br>  1.依赖与重用<br>  2.通信</li>
+</ul>
+<h2 id="ABP的分层架构"><a href="#ABP的分层架构" class="headerlink" title="ABP的分层架构"></a>ABP的分层架构</h2><h2 id="ABP的使用经验串讲"><a href="#ABP的使用经验串讲" class="headerlink" title="ABP的使用经验串讲"></a>ABP的使用经验串讲</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -478,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/">https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/</a>
+                    <a href="https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/22/abp-vnext-xue-xi/">https://qhbzyjjc.github.io/hexoBlog/hexoBlog/2020/07/22/abp-vnext-xue-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -516,12 +595,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/hexoBlog/tags/CodeFirst/">
-                                    <span class="chip bg-color">CodeFirst</span>
+                                <a href="/hexoBlog/tags/ABP-VNext/">
+                                    <span class="chip bg-color">ABP VNext</span>
                                 </a>
                             
-                                <a href="/hexoBlog/tags/EF/">
-                                    <span class="chip bg-color">EF</span>
+                                <a href="/hexoBlog/tags/Asp-Net-Core/">
+                                    <span class="chip bg-color">Asp.Net.Core</span>
                                 </a>
                             
                         </div>
@@ -689,9 +768,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/hexoBlog/2020/07/22/abp-vnext-xue-xi/">
                     <div class="card-image">
@@ -709,9 +789,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -732,6 +812,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -754,31 +835,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/hexoBlog/2020/07/08/oracle-biao-kong-jian-chu-li/">
+                <a href="/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/hexoBlog/medias/featureimages/18.jpg" class="responsive-img" alt="Oracle表空间处理">
+                        <img src="/hexoBlog/medias/featureimages/2.jpg" class="responsive-img" alt="Code First Migration 迁移基本指令">
                         
-                        <span class="card-title">Oracle表空间处理</span>
+                        <span class="card-title">Code First Migration 迁移基本指令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Oracle表空间处理
+                            Code First Migration 迁移基本指令
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/hexoBlog/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
-                                    数据库
+                            <a href="/hexoBlog/categories/ORM/" class="post-category">
+                                    ORM
                                 </a>
                             
                             
@@ -788,12 +869,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/hexoBlog/tags/Oracle/">
-                        <span class="chip bg-color">Oracle</span>
+                    <a href="/hexoBlog/tags/CodeFirst/">
+                        <span class="chip bg-color">CodeFirst</span>
                     </a>
                     
-                    <a href="/hexoBlog/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
+                    <a href="/hexoBlog/tags/EF/">
+                        <span class="chip bg-color">EF</span>
                     </a>
                     
                 </div>

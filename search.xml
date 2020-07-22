@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>ABP VNext学习</title>
+      <link href="/hexoBlog/2020/07/22/abp-vnext-xue-xi/"/>
+      <url>/hexoBlog/2020/07/22/abp-vnext-xue-xi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ABP-VNext"><a href="#ABP-VNext" class="headerlink" title="ABP VNext"></a>ABP VNext</h1><h2 id="ABP-VNext介绍"><a href="#ABP-VNext介绍" class="headerlink" title="ABP VNext介绍"></a>ABP VNext介绍</h2><blockquote><p>ABP VNext是一个ASP.NET Bolierplate 的ASP.NET Core版本，是遵循简洁架构，模块化/插件化设计等多种最佳实践模式的一套web应用程序快速开发套件。</p></blockquote><table><thead><tr><th align="left">特点</th></tr></thead><tbody><tr><td align="left">面向DDD的架构分层设计</td></tr><tr><td align="left">HTTP APIs&amp;动态代理</td></tr><tr><td align="left">模块化设计&amp;微服务兼容</td></tr><tr><td align="left">模切关注点（授权，验证，异常处理，缓存，审计日志，事务管理…）</td></tr><tr><td align="left">虚拟文件系统</td></tr><tr><td align="left">主题与皮肤支持</td></tr><tr><td align="left">多租户支持</td></tr></tbody></table><h2 id="ABP-Vnext相关资料"><a href="#ABP-Vnext相关资料" class="headerlink" title="ABP Vnext相关资料"></a>ABP Vnext相关资料</h2><p><a href="https://abp.io/" target="_blank" rel="noopener">官网</a><br><a href="https://docs.abp.io/zh-hans/abp/latest/" target="_blank" rel="noopener">文档</a><br><a href="https://github.com/abpframework/abp" target="_blank" rel="noopener">源码</a><br><a href="https://github.com/EasyAbp" target="_blank" rel="noopener">ABP国内小组</a></p><h2 id="ABP的模块化"><a href="#ABP的模块化" class="headerlink" title="ABP的模块化"></a>ABP的模块化</h2><ul><li>什么是模块？<blockquote><p>在我们生活中导出都可以看到模块化设计的例子，比如汽车，电脑，家具都是由一些零件组合成小部件，然后在由这些小部件组合成模块，再由模块组合成成品。这些部件可以更换、添加、移除而不影响整体设计。</p><blockquote><p>组件: Component<br>组件是软件的部署单元，是整个软件系统在部署过程中可以独立完成部署的最小实体。对于Java来说是一个jar文件，在.NET中是DLL文件。<br>模块: Module<br>偏向于设计的概念，用于在项目中划分相对独立的功能，或许有时候，模块本身就要引用多个组件。</p></blockquote></blockquote></li></ul><blockquote><p>模块VS组件</p><blockquote><p>模块化是指将软件划分成独立命名且可以独立访问的模块，不同的模块通常具有不同的功能或职责。每个模块都具有可以独立开发、测试，最后组装成完整的软件。<br> 零件 = 类<br> 小部件 = 组件<br> 模块 = 模块</p></blockquote></blockquote><ul><li>ABP模块示例<br>  1.代码<br>  2.依赖注入<br>  3.配置与Options</li><li>为什么要模块化？</li><li>如何拆分模块？</li><li>模块化进阶<br>  1.依赖与重用<br>  2.通信</li></ul><h2 id="ABP的分层架构"><a href="#ABP的分层架构" class="headerlink" title="ABP的分层架构"></a>ABP的分层架构</h2><h2 id="ABP的使用经验串讲"><a href="#ABP的使用经验串讲" class="headerlink" title="ABP的使用经验串讲"></a>ABP的使用经验串讲</h2><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> ABP </category>
+          
+          <category> 学习教程 </category>
+          
+          <category> 后端开发 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ABP VNext </tag>
+            
+            <tag> Asp.Net.Core </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Code First Migration 迁移基本指令</title>
       <link href="/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/"/>
       <url>/hexoBlog/2020/07/13/code-first-migration-qian-yi-ji-ben-zhi-ling/</url>
